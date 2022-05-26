@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const handleRedirect = (event: Event) => {
 		event.preventDefault();
 
-		window.location.href = '/register.html';
+		window.location.href = '/chat.html';
 	};
 
 	loginForm.addEventListener('submit', handleRedirect);
