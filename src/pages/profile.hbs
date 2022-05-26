@@ -24,7 +24,7 @@ filename:
                     {{#each data.profileLinks}}
                         {{#extend "listProfile"}}
                             {{#content "content"}}
-                                {{> link href=this.href text=this.text color=this.color}}
+                                {{> link href=this.href text=this.text color=this.color size="md"}}
                             {{/content}}
                         {{/extend}}
                     {{/each}}
