@@ -8,7 +8,20 @@ filename:
         <main class="change-information-page">
             {{> leftSidebar href="profile.hbs"}}
             <div class="change-information-page__content">
-
+                {{> avatar name="Dima"}}
+                <form id="change-information-form" class="information">
+                    {{#each data.information}}
+                        {{#extend "listProfile"}}
+                            {{#content "content"}}
+                                {{> typography text=this.key size="md"}}
+                                {{> typography text=this.value size="md" color="gray"}}
+                            {{/content}}
+                        {{/extend}}
+                    {{/each}}
+                    <div class="information__buttons">
+                        {{> button type="submit" text="Сохранить"}}
+                    </div>
+                </form>
             </div>
         </main>
     {{/content}}
