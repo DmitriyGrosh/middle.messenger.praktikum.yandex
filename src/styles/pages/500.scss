@@ -3,7 +3,7 @@
 @import "../components/typography";
 @import "../components/link";
 
-.error-404-page {
+.error-500-page {
 	@include screenCenter;
 
 	&__wrapper {
@@ -17,5 +17,6 @@
 			text-align: center;
 			color: #1E1E1E;
 		}
+
 	}
 }
