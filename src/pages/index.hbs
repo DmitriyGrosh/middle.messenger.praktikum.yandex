@@ -19,7 +19,9 @@ id:
         <main class="login-page">
             {{#extend "authForm"}}
                 {{#content "form"}}
-                    <div class="content"></div>
+                    <div class="content">
+                        {{> input type="email" label="email"}}
+                    </div>
                 {{/content}}
             {{/extend}}
         </main>

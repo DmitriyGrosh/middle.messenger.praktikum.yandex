@@ -4,6 +4,7 @@
 @import "button";
 @import "link";
 @import "mixin";
+@import "input";
 
 .login-page {
 	@include screenCenter;
