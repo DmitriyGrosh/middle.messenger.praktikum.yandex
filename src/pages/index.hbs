@@ -1,0 +1,23 @@
+---
+stylesheets:
+- login
+
+header:
+- Вход
+
+links:
+    text: Нет аккаунта ?
+    href: register.hbs
+---
+
+{{#extend "base"}}
+    {{#content "main"}}
+        <main class="login-page">
+            {{#extend "authForm"}}
+                {{#content "form"}}
+                    <div class="content"></div>
+                {{/content}}
+            {{/extend}}
+        </main>
+    {{/content}}
+{{/extend}}

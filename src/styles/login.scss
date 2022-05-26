@@ -1,0 +1,10 @@
+@import "style";
+@import "typography";
+@import "authForm";
+
+.login-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
