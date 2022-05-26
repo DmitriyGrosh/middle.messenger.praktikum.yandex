@@ -1,15 +1,27 @@
 ---
 filename:
 - register
+
+header:
+- Регистрация
+
+links:
+    text: Войти
+    href: index.hbs
+    buttonText: Зарегестрироваться
+
+id:
+    formId: register
 ---
 
 {{#extend "base"}}
     {{#content "main"}}
-        <main>
-            <h1>Welcome from Register.hbs</h1>
-            <a href="index.hbs">Login</a>
-            <br />
-            {{> button}}
+        <main class="register-page">
+            {{#extend "authForm"}}
+                {{#content "form"}}
+                    <div class="content"></div>
+                {{/content}}
+            {{/extend}}
         </main>
     {{/content}}
 {{/extend}}

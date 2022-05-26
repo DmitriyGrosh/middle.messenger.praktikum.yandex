@@ -1,4 +1,4 @@
-<form class="auth-form">
+<form id="{{id.formId}}" class="auth-form">
     <div class="header">
         {{#each header}}
             {{> typography text=this size="lg" }}
@@ -8,7 +8,7 @@
     {{#block "form"}}
     {{/block}}
     <div class="links">
-        {{> button text=links.buttonText}}
+        {{> button type="submit" text=links.buttonText}}
         {{> link href=links.href text=links.text color="blue"}}
     </div>
 </form>

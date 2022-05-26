@@ -2,10 +2,9 @@
 @import "typography";
 @import "authForm";
 @import "button";
+@import "link";
+@import "mixin";
 
 .login-page {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
+	@include screenCenter;
 }

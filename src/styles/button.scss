@@ -1,5 +1,5 @@
 .button-default {
-	background: #3369F3;
+	background: rgba(51, 105, 243, 1);
 	border-radius: 8px;
 	width: 100%;
 	max-width: 280px;
@@ -11,4 +11,12 @@
 	text-align: center;
 	color: #FFFFFF;
 	border: none;
+
+	&:hover {
+		background: rgba(51, 105, 243, 0.9);
+	}
+
+	&:active {
+		background: rgba(51, 105, 243, 0.8);
+	}
 }
