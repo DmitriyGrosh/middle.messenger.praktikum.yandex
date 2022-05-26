@@ -1,6 +1,6 @@
-@import "typography";
-@import "button";
-@import "link";
+@import "../components/typography";
+@import "../components/button";
+@import "../components/link";
 
 .auth-form {
 	display: flex;

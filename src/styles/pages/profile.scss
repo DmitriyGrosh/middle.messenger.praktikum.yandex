@@ -1,10 +1,10 @@
-@import "style";
-@import "leftSidebar";
-@import "avatar";
-@import "listProfile";
-@import "typography";
-@import "link";
-@import "mixin";
+@import "../style";
+@import "../mixin";
+@import "../components/leftSidebar";
+@import "../components/avatar";
+@import "../components/listProfile";
+@import "../components/typography";
+@import "../components/link";
 
 .profile-page {
 	@include screenRow;

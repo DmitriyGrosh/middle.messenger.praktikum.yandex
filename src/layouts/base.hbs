@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title>Chat</title>
-    {{#each filename}}
-        <link href="../styles/{{this}}.scss" rel="stylesheet" />
+    {{#each stylesheets}}
+        <link href="../styles/pages/{{this}}.scss" rel="stylesheet" />
+    {{/each}}
+    {{#each scripts}}
         <script src="../scripts/{{this}}.ts" type="module"></script>
     {{/each}}
 </head>
