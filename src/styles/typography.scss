@@ -1,27 +1,9 @@
+@import "mixin";
+
 .typography {
 	font-style: normal;
 	font-weight: 500;
-	font-size: 11px;
-	line-height: 11px;
 	text-align: center;
 	color: #1E1E1E;
-}
-
-.sm {
-	font-weight: 400;
-	font-size: 8px;
-	line-height: 8px;
-}
-
-.lg {
-	font-size: 20px;
-	line-height: 20px;
-}
-
-.red {
-	color: #FF2F2F;
-}
-
-.blue {
-	color: #3369F3;
+	@include fontNormal;
 }

@@ -1,3 +1,5 @@
+@import "mixin";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -31,4 +33,29 @@ a, p, span, h1, h2, h3, h4, h5, h6, li, label, button {
 
 button {
 	cursor: pointer;
+}
+
+.sm {
+	font-weight: 400;
+	@include fontSm;
+}
+
+.md {
+	@include fontMd;
+}
+
+.lg {
+	@include fontLg;
+}
+
+.red {
+	color: #FF2F2F;
+}
+
+.gray {
+	color: #999999;
+}
+
+.blue {
+	color: #3369F3;
 }

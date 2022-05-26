@@ -11,10 +11,23 @@ filename:
             <div class="content">
                 {{> avatar name="Dima"}}
                 <div class="information">
-
+                    {{#each data.information}}
+                        {{#extend "listProfile"}}
+                            {{#content "content"}}
+                                {{> typography text=this.key size="md"}}
+                                {{> typography text=this.value size="md" color="gray"}}
+                            {{/content}}
+                        {{/extend}}
+                    {{/each}}
                 </div>
                 <div class="links">
-
+                    {{#each data.profileLinks}}
+                        {{#extend "listProfile"}}
+                            {{#content "content"}}
+                                {{> link href=this.href text=this.text color=this.color}}
+                            {{/content}}
+                        {{/extend}}
+                    {{/each}}
                 </div>
             </div>
         </main>
