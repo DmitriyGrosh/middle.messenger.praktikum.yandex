@@ -1,6 +1,6 @@
 # Grosh Dmitriy chat
 
-[Pull request из `sprint_1`]()
+[Pull request из `sprint_1`](https://github.com/DmitriyGrosh/middle.messenger.praktikum.yandex/pull/1)
 
 [Сайт на Netlify](https://classy-torrone-20e766.netlify.app/)
 
