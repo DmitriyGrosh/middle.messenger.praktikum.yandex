@@ -2,12 +2,14 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main.  ### ВАЖНО: pull request должен называться “Sprint i” (i — номер спринта).",
-  "main": "index.js",
+  "engines": {
+    "node": ">=14.19"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "start": "parcel src/pages/*.hbs --no-cache --port 3000",
-    "build": "parcel build index.hbs"
+    "build": "parcel build src/pages/*.hbs"
   },
   "repository": {
     "type": "git",
