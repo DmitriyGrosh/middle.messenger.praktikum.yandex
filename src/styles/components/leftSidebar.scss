@@ -1,0 +1,26 @@
+.left-sidebar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 64px;
+	background: #FBFBFB;
+	height: 100%;
+	border-right: 1px solid #EAEAEA;
+
+	.arrow {
+		background: #3369F3;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			content: "←";
+			color: #FFFFFF;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}

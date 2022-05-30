@@ -1,0 +1,34 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #1E1E1E;
+}
+
+a, p, span, h1, h2, h3, h4, h5, h6, li, label, button {
+	font-family: "Inter", sans-serif;
+}
+
+button {
+	cursor: pointer;
+}

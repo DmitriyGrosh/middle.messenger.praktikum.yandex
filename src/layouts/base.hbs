@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat</title>
+    {{#each stylesheets}}
+        <link href="../styles/pages/{{this}}.scss" rel="stylesheet" />
+    {{/each}}
+    {{#each scripts}}
+        <script src="../scripts/{{this}}.ts" type="module"></script>
+    {{/each}}
+</head>
+<body>
+    {{#block "main"}}{{/block}}
+</body>
+</html>

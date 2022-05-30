@@ -1,0 +1,38 @@
+---
+stylesheets:
+- register
+
+scripts:
+- register
+
+header:
+- Регистрация
+
+links:
+    text: Войти
+    href: index.hbs
+    buttonText: Зарегестрироваться
+
+id:
+    formId: register
+---
+
+{{#extend "base"}}
+    {{#content "main"}}
+        <main class="register-page">
+            {{#extend "authForm"}}
+                {{#content "form"}}
+                    <div class="content register">
+                        {{> input type="email" label="Почта" inputId="email"}}
+                        {{> input type="text" label="Логин" inputId="login"}}
+                        {{> input type="text" label="Имя" inputId="firstName"}}
+                        {{> input type="text" label="Фамилия" inputId="lastName"}}
+                        {{> input type="number" label="Телефон" inputId="phone"}}
+                        {{> input type="password" label="Пароль" inputId="password"}}
+                        {{> input type="password" label="Пароль (ещё раз)" inputId="rePassword"}}
+                    </div>
+                {{/content}}
+            {{/extend}}
+        </main>
+    {{/content}}
+{{/extend}}

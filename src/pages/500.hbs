@@ -1,0 +1,16 @@
+---
+stylesheets:
+- 500
+---
+
+{{#extend "base"}}
+    {{#content "main"}}
+        <div class="error-500-page">
+            <div class="error-500-page__wrapper">
+                <h2>500</h2>
+                {{> typography text="Мы уже фиксим" size="lg"}}
+                {{> link href="chat.hbs" text="Назад к чатам" color="blue"}}
+            </div>
+        </div>
+    {{/content}}
+{{/extend}}

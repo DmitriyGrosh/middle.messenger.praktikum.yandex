@@ -1,0 +1,34 @@
+.link {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 11px;
+	line-height: 11px;
+}
+
+// пытался вынести эти классы в глобыльные стили, но если так сделать,
+// то начальные стили перебивают
+
+.sm {
+	font-weight: 400;
+	@include fontSm;
+}
+
+.md {
+	@include fontMd;
+}
+
+.lg {
+	@include fontLg;
+}
+
+.red {
+	color: #FF2F2F;
+}
+
+.gray {
+	color: #999999;
+}
+
+.blue {
+	color: #3369F3;
+}

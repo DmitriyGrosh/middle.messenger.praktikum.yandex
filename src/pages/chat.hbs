@@ -1,0 +1,13 @@
+---
+stylesheets:
+- chat
+---
+
+{{#extend "base"}}
+    {{#content "main"}}
+        <main class="chat-page">
+            <h1>Chat</h1>
+            {{> link href="profile.hbs" text="Профиль"}}
+        </main>
+    {{/content}}
+{{/extend}}
