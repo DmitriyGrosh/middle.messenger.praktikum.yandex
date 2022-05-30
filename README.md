@@ -1,5 +1,9 @@
 # Grosh Dmitriy chat
 
+[Pull request #1](https://github.com/DmitriyGrosh/middle.messenger.praktikum.yandex/pull/1)
+
+### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
+
 [Pull request из `sprint_1`](https://github.com/DmitriyGrosh/middle.messenger.praktikum.yandex/pull/1)
 
 [Сайт на Netlify](https://classy-torrone-20e766.netlify.app/)
