@@ -4,7 +4,7 @@ import "./listProfile.scss";
 
 interface IListProfile {}
 
-class ListProfile extends Block<ListProfile> {
+class ListProfile extends Block {
 
 	protected render(): string {
 		// language=hbs

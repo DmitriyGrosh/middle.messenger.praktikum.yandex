@@ -8,7 +8,6 @@ import {
 	Avatar,
 	LinkProfile,
 	ListProfile,
-	Layout,
 } from "./components";
 
 const components = [
@@ -19,7 +18,6 @@ const components = [
 	Button,
 	Input,
 	LeftSidebar,
-	Layout,
 ];
 
 components.forEach((Component) => {
@@ -43,10 +41,10 @@ class MyComponent2 extends Block {
 	render(): string {
 		// language=hbs
 		return `
-        {{#Layout name="Onboarding" }}
+        {{#ListProfile name="Onboarding" }}
             {{{Button text="Login"}}}
             <a href="/">login</a>
-        {{/Layout}}
+        {{/ListProfile}}
 		`;
 	}
 }

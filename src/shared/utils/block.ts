@@ -69,12 +69,9 @@ export default class Block<P = any> {
 
 	_componentDidMount(props: P) {
 		this.componentDidMount(props);
-
-		this._render();
 	}
 
 	componentDidMount(props: P) {
-		console.log('==========>props', props);
 	}
 
 	_componentDidUpdate(oldProps: P, newProps: P) {
@@ -86,8 +83,6 @@ export default class Block<P = any> {
 	}
 
 	componentDidUpdate(oldProps: P, newProps: P) {
-		console.log('==========>oldProps', oldProps);
-		console.log('==========>newProps', newProps);
 		return true;
 	}
 
