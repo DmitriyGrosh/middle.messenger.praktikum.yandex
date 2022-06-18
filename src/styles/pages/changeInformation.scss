@@ -1,10 +1,10 @@
 @import "../style";
 @import "../mixin";
-@import "../components/leftSidebar";
-@import "../components/avatar";
-@import "../components/typography";
-@import "../components/button";
-@import "../components/listProfile";
+@import "../../components/leftSidebar/leftSidebar";
+@import "../../components/avatar/avatar";
+@import "../../components/typography/typography";
+@import "../../components/button/button";
+@import "../../components/listProfile/listProfile";
 
 .change-information-page {
 	@include screenRow;

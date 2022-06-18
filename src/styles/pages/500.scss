@@ -1,7 +1,7 @@
 @import "../style";
 @import "../mixin";
-@import "../components/typography";
-@import "../components/link";
+@import "../../components/typography/typography";
+@import "../../components/link/link";
 
 .error-500-page {
 	@include screenCenter;

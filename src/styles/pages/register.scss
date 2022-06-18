@@ -1,7 +1,7 @@
 @import "../style";
 @import "../mixin";
 @import "../layouts/authForm";
-@import "../components/input";
+@import "../../components/input/input";
 
 .register-page {
 	@include screenCenter;
