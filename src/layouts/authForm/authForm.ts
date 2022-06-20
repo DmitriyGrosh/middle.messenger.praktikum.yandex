@@ -9,11 +9,12 @@ interface IAuthForm {
 	hrefLink: string;
 	textLink: string;
 	className?: string;
+	onSubmit?: (event: Event) => void;
 }
 
 class AuthForm extends Block {
-	constructor({ header, formId, textButton, textLink, hrefLink, className }: IAuthForm) {
-		super({ header, formId, textButton, textLink, hrefLink, className });
+	constructor({ header, formId, textButton, textLink, hrefLink, className, onSubmit }: IAuthForm) {
+		super({ header, formId, textButton, textLink, hrefLink, className, events: { submit: onSubmit } });
 	}
 
 	protected render(): string {

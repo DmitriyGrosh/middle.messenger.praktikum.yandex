@@ -9,10 +9,7 @@ interface IInput {
 	label?: string;
 	value?: string;
 	required?: boolean;
-	input?: {
-		error: boolean;
-		textError: string;
-	}
+	error?: string;
 }
 
 
@@ -22,7 +19,7 @@ class Input extends Block {
 			inputId,
 			label,
 			required,
-			input,
+			error,
 			value,
 			onChange = () => {},
 		}: IInput) {
@@ -30,7 +27,7 @@ class Input extends Block {
 			type,
 			inputId,
 			label,
-			input,
+			error,
 			value,
 			required,
 			events: { input: onChange },
@@ -43,11 +40,11 @@ class Input extends Block {
 		return `
 		<div class="input-wrapper">
 	    <div class="input-container">
-	        <input type="{{type}}" id="{{inputId}}" class="input-default" value="{{value}}" required="{{required}}">
+	        <input type="{{type}}" id="{{inputId}}" class="input-default" value="{{value}}">
 	        <label for="{{inputId}}" class="label-default">{{label}}</label>
 	    </div>
-	    {{#if input.error}}
-	        {{Typography color="red" size="sm" text=input.textError}}
+	    {{#if error}}
+          {{{Typography color="red" size="sm" text=error}}}
 	    {{/if}}
 		</div>
 		`;
