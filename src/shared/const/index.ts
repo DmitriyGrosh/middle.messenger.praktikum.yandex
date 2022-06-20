@@ -68,18 +68,10 @@ export const information = [
 
 export const chats = [
 	{
-		id: 0,
-		time: '10:51',
-		name: 'Андрей',
-		message: 'ТsvBEWIDHBHJQEFBRHJBEWHRUBFIHBERIFBIERWBFBREIBFIHERBHUFREUBFUERBFBREJ',
-		avatar: '',
-		handleClick: () => {},
-	},
-	{
 		id: 1,
 		time: '10:51',
 		name: 'Андрей',
-		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		message: 'ТsvBEWIDHBHJQEFBRHJBEWHRUBFIHBERIFBIERWBFBREIBFIHERBHUFREUBFUERBFBREJ',
 		avatar: '',
 		handleClick: () => {},
 	},
@@ -101,6 +93,14 @@ export const chats = [
 	},
 	{
 		id: 4,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		avatar: '',
+		handleClick: () => {},
+	},
+	{
+		id: 5,
 		time: '10:51',
 		name: 'Андрей',
 		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',

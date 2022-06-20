@@ -1,0 +1,83 @@
+.chat-content {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex: 0 0 auto;
+		height: 60px;
+		padding: 10px 20px;
+		border-bottom: 1px solid #EAEAEA;
+
+		&__account {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+
+			.circle {
+				width: 34px;
+				height: 34px;
+				background: #EFEFEF;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&__messages {
+		flex: 1 0 auto;
+		overflow-y: scroll;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		flex: 0 0 auto;
+		padding: 10px 20px;
+		border-top: 1px solid #EAEAEA;
+		gap: 10px;
+
+		&__staple {
+			width: 35px;
+			height: 35px;
+			background-image: url("../../../static/images/staple.png");
+			background-size: contain;
+		}
+
+		&__chat {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+
+			.input-wrapper {
+				width: 100%;
+
+				.input-container {
+					input {
+						width: 100%;
+						height: 100%;
+						text-align: start;
+						padding: 20px 20px;
+						background: #EFEFEF;
+						box-sizing: border-box;
+						border-radius: 15px;
+						border: none;
+					}
+				}
+			}
+		}
+
+		&__send {
+			.button-default {
+				width: 37px;
+				border-radius: 50%;
+			}
+		}
+	}
+}

@@ -6,17 +6,28 @@ class Chat extends Block {
 
 	protected getStateFromProps() {
 		this.state = {
-			onClick: () => {
-				console.log('==========>123123', 123123)
+			chatId: null,
+			handleClick: (id: number) => {
+				this.setState({
+					chatId: id,
+				});
 			},
 		};
 	};
 
 	protected render(): string {
+		console.log('==========>this.state', this.state);
 		// language=hbs
 		return `
 			<main class="chat-page">
-          {{{ChatSidebar}}}
+          {{{ChatSidebar onClick=handleClick}}}
+					<div class="chat-page__content">
+              {{#if chatId}}
+                  {{{ChatContent activeChatId=chatId}}}
+              {{else}}
+                  {{{Typography text="Выберите чат чтобы отправить сообщение" color="gray" size="md"}}}
+              {{/if}}
+					</div>
 			</main>
 		`;
 	}

@@ -1,4 +1,8 @@
-import { Block, registerComponent, renderDom } from "./shared/utils";
+import {
+	Block,
+	registerComponent,
+	renderDom,
+} from "./shared/utils";
 
 import {
 	LeftSidebar,
@@ -11,7 +15,12 @@ import {
 	ChatElement,
 } from "./components";
 
-import { AuthForm , ChatSidebar, SidebarHeader} from "./layouts";
+import {
+	AuthForm,
+	ChatSidebar,
+	SidebarHeader,
+	ChatContent,
+} from "./layouts";
 
 import {
 	Login,
@@ -36,6 +45,7 @@ const components = [
 	ChatSidebar,
 	ChatElement,
 	SidebarHeader,
+	ChatContent,
 ];
 
 components.forEach((Component) => {

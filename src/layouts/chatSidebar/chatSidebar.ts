@@ -6,28 +6,24 @@ import chat from "../../pages/chat/chat";
 
 interface IChatSidebar {
 	chats?: typeof chatsContent;
+	onClick?: (id: number) => void;
 }
 
 class ChatSidebar extends Block {
-	constructor({ chats = chatsContent }: IChatSidebar) {
-		super({ chats });
+	constructor({ chats = chatsContent, onClick }: IChatSidebar) {
+		super({ chats, onClick });
 	}
 
 	protected getStateFromProps() {
 		this.state = {
 			onChange: (event: Event) => {
 				console.log('==========>event', event);
-				console.log('==========>123123', 123123)
-			},
-
-			onClick: () => {
-				console.log('==========>44444', 44444);
 			},
 
 			chatsTest: chatsContent.map((el) => ({
 				...el,
 				handleClick: () => {
-					this.state.onClick();
+					this.props.onClick(el.id);
 				},
 			})),
 		};
