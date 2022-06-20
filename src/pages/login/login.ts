@@ -1,8 +1,8 @@
 import { Block } from "../../shared/utils";
 import {
-	isEmptyValidator,
 	loginValidator,
 	passwordValidator,
+	validateByType,
 } from "../../shared/utils/validator";
 
 import "./login.scss";
@@ -51,20 +51,11 @@ class Login extends Block {
 
 			onBlur: (event: Event) => {
 				const { id, value } = event.target as HTMLInputElement;
-				const validateByType = () => {
-					switch (id) {
-						case "password":
-							return passwordValidator(value);
-						case "login":
-						default:
-							return isEmptyValidator(value);
-					}
-				};
 
 				const nextState = {
 					errors: {
 						...this.state.errors,
-						[id]: validateByType(),
+						[id]: validateByType(id, value, this.state.password),
 					},
 					values: {
 						...this.state.values,

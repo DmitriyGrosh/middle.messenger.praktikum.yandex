@@ -5,6 +5,7 @@ import {
 	loginValidator,
 	passwordValidator,
 	phoneValidator,
+	validateByType,
 } from "../../shared/utils/validator";
 
 import "./register.scss";
@@ -73,27 +74,11 @@ class Register extends Block {
 
 			onBlur: (event: Event) => {
 				const { id, value } = event.target as HTMLInputElement;
-				const validateByType = () => {
-					switch (id) {
-						case "email":
-							return emailValidator(value);
-						case "password":
-							return passwordValidator(value);
-						case "login":
-							return loginValidator(value);
-						case "phone":
-							return phoneValidator(value);
-						case "rePassword":
-							return passwordValidator(this.state.values.password, value);
-						default:
-							return isEmptyValidator(value);
-					}
-				}
 
 				const nextState = {
 					errors: {
 						...this.state.errors,
-						[id]: validateByType(),
+						[id]: validateByType(id, value, this.state.password),
 					},
 					values: {
 						...this.state.values,

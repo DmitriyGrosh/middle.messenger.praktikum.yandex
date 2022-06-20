@@ -61,3 +61,20 @@ export const phoneValidator = (value: string) => {
 
 	return '';
 }
+
+export const validateByType = (id: string, value: string, password?: string) => {
+	switch (id) {
+		case "email":
+			return emailValidator(value);
+		case "password":
+			return passwordValidator(value);
+		case "login":
+			return loginValidator(value);
+		case "phone":
+			return phoneValidator(value);
+		case "rePassword":
+			return passwordValidator(password || '', value);
+		default:
+			return isEmptyValidator(value);
+	}
+}

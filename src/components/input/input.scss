@@ -24,6 +24,12 @@
 			border-bottom: 1px solid #3369F3;
 			outline: none;
 
+
+			&__border-none {
+				border: none;
+				color: #999;
+			}
+
 			&:focus ~ .label-default,
 			&:valid ~ .label-default {
 				top: -1em;
