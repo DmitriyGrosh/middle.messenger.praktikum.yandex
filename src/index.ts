@@ -10,6 +10,19 @@ import {
 	ListProfile,
 } from "./components";
 
+import { AuthForm } from "./layouts";
+
+import {
+	Login,
+	Profile,
+	Chat,
+	ChangePassword,
+	ChangeInformation,
+	Page505,
+	Page404,
+	Register,
+} from "./pages";
+
 const components = [
 	ListProfile,
 	LinkProfile,
@@ -18,47 +31,35 @@ const components = [
 	Button,
 	Input,
 	LeftSidebar,
+	AuthForm,
 ];
 
 components.forEach((Component) => {
 	registerComponent(Component);
 });
 
-class MyComponent extends Block {
-	render(): string {
-		// language=hbs
-		return `
-			<div>
-				<div>Hello !</div>
-				<a href="/login">login</a>
-          {{{Button text="Login"}}}
-			</div>
-		`;
-	}
-}
-
-class MyComponent2 extends Block {
-	render(): string {
-		// language=hbs
-		return `
-        {{#ListProfile name="Onboarding" }}
-            {{{Button text="Login"}}}
-            <a href="/">login</a>
-        {{/ListProfile}}
-		`;
-	}
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 	const router = (): Block => {
 		const { pathname } = window.location;
 		switch (pathname) {
 			case '/':
-				return new MyComponent({});
-			case '/login':
-				return new MyComponent2({});
+				return new Login({});
+			case '/register':
+				return new Register({});
+			case '/chat':
+				return new Chat({});
+			case '/change-information':
+				return new ChangeInformation({});
+			case '/profile':
+				return new Profile({});
+			case '/change-password':
+				return new ChangePassword({});
+			case '/505':
+				return new Page505({});
+			case '/404':
+				return new Page404({});
 			default:
-				return new MyComponent({});
+				return new Page404({});
 		}
 	}
 

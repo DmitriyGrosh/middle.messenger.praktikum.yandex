@@ -1,9 +1,7 @@
-@import "../style";
-@import "../mixin";
-@import "../../components/typography/typography";
-@import "../../components/link/link";
+@import "../../styles/style";
+@import "../../styles/mixin";
 
-.error-500-page {
+.error-404-page {
 	@include screenCenter;
 
 	&__wrapper {
@@ -17,6 +15,5 @@
 			text-align: center;
 			color: #1E1E1E;
 		}
-
 	}
 }

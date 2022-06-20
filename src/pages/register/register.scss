@@ -1,0 +1,10 @@
+@import "../../styles/style";
+@import "../../styles/mixin";
+
+.register-page {
+	@include screenCenter;
+
+	.register-content {
+		padding-bottom: 60px;
+	}
+}
