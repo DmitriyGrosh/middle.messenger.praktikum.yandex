@@ -1,0 +1,6 @@
+@import "../../styles/style";
+@import "../../styles/mixin";
+
+.login-page {
+	@include screenCenter;
+}

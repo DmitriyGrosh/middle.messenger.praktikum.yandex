@@ -1,0 +1,9 @@
+.list-profile {
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid #EAEAEA;
+		padding: 10px 0;
+	}
+}

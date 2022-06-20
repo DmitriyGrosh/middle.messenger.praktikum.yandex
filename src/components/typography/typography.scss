@@ -1,0 +1,44 @@
+@import "../../styles/mixin";
+
+.typography {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: 500;
+	text-align: center;
+	color: #1E1E1E;
+	@include fontNormal;
+}
+
+// пытался вынести эти классы в глобыльные стили, но если так сделать,
+// то начальные стили перебивают
+
+.sm {
+	font-weight: 400;
+	@include fontSm;
+}
+
+.md {
+	@include fontMd;
+}
+
+.lg {
+	@include fontLg;
+}
+
+.red {
+	color: #FF2F2F;
+}
+
+.gray {
+	color: #999999;
+}
+
+.blue {
+	color: #3369F3;
+}
+
+.white {
+	color: #FFFFFF;
+}

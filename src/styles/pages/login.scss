@@ -1,8 +1,0 @@
-@import "../style";
-@import "../mixin";
-@import "../layouts/authForm";
-@import "../components/input";
-
-.login-page {
-	@include screenCenter;
-}

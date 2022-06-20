@@ -8,8 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
-    "start": "parcel src/pages/*.hbs --no-cache --port 3000",
-    "build": "parcel build src/pages/*.hbs"
+    "start": "parcel src/index.html --no-cache --port 3000",
+    "build": "parcel build src/pages/*.hbs",
+    "lint": "eslint --fix \"./src/**/*.{js, jsx,ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,29 @@
     "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@parcel/config-default": "2.6.0",
     "@parcel/transformer-sass": "2.6.0",
+    "babel-core": "^6.26.3",
     "express": "4.18.1",
+    "handlebars": "^4.7.7",
     "nodemon": "2.0.16",
-    "parcel": "2.6.0"
+    "parcel": "2.6.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "nanoid": "^4.0.0",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "stylelint": "^14.9.1",
+    "stylelint-scss": "^4.2.0",
+    "typescript": "^4.7.3"
   }
 }
