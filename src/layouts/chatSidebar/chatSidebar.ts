@@ -16,9 +16,7 @@ class ChatSidebar extends Block {
 
 	protected getStateFromProps() {
 		this.state = {
-			onChange: (event: Event) => {
-				console.log('==========>event', event);
-			},
+			onChange: () => {},
 
 			chatsTest: chatsContent.map((el) => ({
 				...el,

@@ -79,8 +79,6 @@ export const validateByType = (id: string, value: string, password?: string) => 
 		case "rePassword":
 			return passwordValidator(password || '', value);
 		case "reNewPassword":
-			console.log('==========>password', password);
-			console.log('==========>value', value);
 			return passwordValidator(password || '', value);
 		default:
 			return isEmptyValidator(value);

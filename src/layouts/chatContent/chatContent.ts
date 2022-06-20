@@ -18,9 +18,7 @@ class ChatContent extends Block {
 			},
 			user: chats[0],
 			messages: [],
-			handleChange: () => {
-				console.log('==========>1');
-			},
+			handleChange: () => {},
 			handleSubmit: () => {
 				const message = (this.refs.chat.querySelector("#chat") as HTMLInputElement).value;
 				console.log('==========>message', message);

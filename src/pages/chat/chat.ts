@@ -16,7 +16,6 @@ class Chat extends Block {
 	};
 
 	protected render(): string {
-		console.log('==========>this.state', this.state);
 		// language=hbs
 		return `
 			<main class="chat-page">
