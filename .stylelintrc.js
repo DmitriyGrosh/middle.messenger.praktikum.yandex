@@ -11,6 +11,7 @@ module.extends = {
     "scss/selector-no-redundant-nesting-selector": true,
   },
   ignoreFiles: [
-    "build/*"
+    "build/*",
+    "dist/*",
   ],
 }
