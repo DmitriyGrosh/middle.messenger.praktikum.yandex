@@ -1,5 +1,6 @@
-import Block from './Block';
 import * as Handlebars from "handlebars";
+
+import Block from "./Block";
 
 interface BlockConstructable<Props = any> {
 	new(props: Props): Block;
