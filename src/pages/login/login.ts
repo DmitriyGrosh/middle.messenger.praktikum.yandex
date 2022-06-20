@@ -32,11 +32,11 @@ class Login extends Block {
 
 				this.setState(nextState);
 
+				console.log('action/login', loginData);
+
 				if (!this.state.errors.login && !this.state.errors.password) {
 					window.location.href = '/chat';
 				}
-
-				console.log('action/login', loginData);
 			}
 		}
 	}
