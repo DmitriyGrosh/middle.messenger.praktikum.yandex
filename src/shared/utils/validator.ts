@@ -68,11 +68,19 @@ export const validateByType = (id: string, value: string, password?: string) => 
 			return emailValidator(value);
 		case "password":
 			return passwordValidator(value);
+		case "newPassword":
+			return passwordValidator(value);
+		case "oldPassword":
+			return passwordValidator(value);
 		case "login":
 			return loginValidator(value);
 		case "phone":
 			return phoneValidator(value);
 		case "rePassword":
+			return passwordValidator(password || '', value);
+		case "reNewPassword":
+			console.log('==========>password', password);
+			console.log('==========>value', value);
 			return passwordValidator(password || '', value);
 		default:
 			return isEmptyValidator(value);
