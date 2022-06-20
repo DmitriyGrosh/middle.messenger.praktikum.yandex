@@ -3,7 +3,9 @@ import { Block } from "../../shared/utils";
 import "./input.scss";
 
 interface IInput {
-	onChange?: () => void;
+	onChangeTest?: () => void;
+	onChangeBlur?: (event: Event) => void;
+	onChangeFocus?: (event: Event) => void;
 	type?: 'text' | 'email' | 'password';
 	inputId?: string;
 	label?: string;
@@ -21,7 +23,10 @@ class Input extends Block {
 			required,
 			error,
 			value,
-			onChange = () => {},
+			// почему если принимать именна пропсов как onChange или onBlur, то выкидывает ошибку
+			onChangeBlur,
+			onChangeFocus,
+		            onChangeTest = () => {},
 		}: IInput) {
 		super({
 			type,
@@ -30,8 +35,28 @@ class Input extends Block {
 			error,
 			value,
 			required,
-			events: { input: onChange },
+			events: { input: onChangeTest, focus: onChangeFocus, blur: onChangeBlur },
 		});
+	}
+
+	addEvents() {
+		const events: Record<string, () => void> = (this.props as any).events;
+
+		if (!events) {
+			return;
+		}
+
+		Object.entries(events).forEach(([event, listener]) => {
+			if (this.props.inputId && this._element?.querySelector(`#${this.props.inputId}`)) {
+				this._element?.querySelector(`#${this.props.inputId}`)?.addEventListener(event, listener)
+			} else {
+				this._element!.addEventListener(event, listener);
+			}
+		});
+	}
+
+	componentDidMount(props: any) {
+		this.addEvents();
 	}
 
 	protected render(): string {

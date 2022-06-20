@@ -4,7 +4,7 @@ import {
 	isEmptyValidator,
 	loginValidator,
 	passwordValidator,
-	phoneValidator
+	phoneValidator,
 } from "../../shared/utils/validator";
 
 import "./register.scss";
@@ -64,9 +64,45 @@ class Register extends Block {
 				console.log('action/register', registerData);
 
 				if (!login && !password && !email && !firstName && !lastName && !phone && !rePassword) {
-					window.location.href = '/chat';
+					// сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
+					setTimeout(() => {
+						window.location.href = '/chat';
+					}, 10000)
 				}
-			}
+			},
+
+			onBlur: (event: Event) => {
+				const { id, value } = event.target as HTMLInputElement;
+				const validateByType = () => {
+					switch (id) {
+						case "email":
+							return emailValidator(value);
+						case "password":
+							return passwordValidator(value);
+						case "login":
+							return loginValidator(value);
+						case "phone":
+							return phoneValidator(value);
+						case "rePassword":
+							return passwordValidator(this.state.values.password, value);
+						default:
+							return isEmptyValidator(value);
+					}
+				}
+
+				const nextState = {
+					errors: {
+						...this.state.errors,
+						[id]: validateByType(),
+					},
+					values: {
+						...this.state.values,
+						[id]: value,
+					},
+				};
+
+				this.setState(nextState);
+			},
 		}
 	}
 
@@ -86,6 +122,7 @@ class Register extends Block {
 				            className="register-content"
             }}
                 {{{Input
+				                onChangeBlur=onBlur
                         value="${values.email}"
                         error="${errors.email}"
                         ref="email"
@@ -94,6 +131,7 @@ class Register extends Block {
 				                label="Почта"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="text"
 				                label="Логин"
                         value="${values.login}"
@@ -102,6 +140,7 @@ class Register extends Block {
                         inputId="login"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="text"
 				                label="Имя"
                         value="${values.firstName}"
@@ -110,6 +149,7 @@ class Register extends Block {
                         inputId="firstName"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="text"
 				                label="Фамилия"
                         value="${values.lastName}"
@@ -118,6 +158,7 @@ class Register extends Block {
                         inputId="lastName"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="number"
 				                label="Телефон"
                         value="${values.phone}"
@@ -126,6 +167,7 @@ class Register extends Block {
                         inputId="phone"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="password"
 				                label="Пароль"
                         value="${values.password}"
@@ -134,6 +176,7 @@ class Register extends Block {
                         inputId="password"
                 }}}
                 {{{Input
+                        onChangeBlur=onBlur
 				                type="password" 
 				                label="Пароль (ещё раз)"
                         value="${values.rePassword}"
