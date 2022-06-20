@@ -64,4 +64,47 @@ export const information = [
 		key: "Телефон",
 		value: "8 (900) 000-00-00"
 	}
-]
+];
+
+export const chats = [
+	{
+		id: 0,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'ТsvBEWIDHBHJQEFBRHJBEWHRUBFIHBERIFBIERWBFBREIBFIHERBHUFREUBFUERBFBREJ',
+		avatar: '',
+		handleClick: () => {},
+	},
+	{
+		id: 1,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		avatar: '',
+		handleClick: () => {},
+	},
+	{
+		id: 2,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		avatar: '',
+		handleClick: () => {},
+	},
+	{
+		id: 3,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		avatar: '',
+		handleClick: () => {},
+	},
+	{
+		id: 4,
+		time: '10:51',
+		name: 'Андрей',
+		message: 'Так увлёкся работой по курсу, что совсем забыл его анонсир',
+		avatar: '',
+		handleClick: () => {},
+	},
+];

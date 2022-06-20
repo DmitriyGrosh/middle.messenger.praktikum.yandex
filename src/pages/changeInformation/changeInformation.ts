@@ -11,10 +11,6 @@ import {
 import "./changeInformation.scss";
 
 class ChangeInformation extends Block {
-	constructor() {
-		super();
-	};
-
 	protected getStateFromProps()
 	{
 		this.state = {

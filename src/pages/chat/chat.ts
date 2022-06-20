@@ -4,12 +4,19 @@ import "./chat.scss";
 
 class Chat extends Block {
 
+	protected getStateFromProps() {
+		this.state = {
+			onClick: () => {
+				console.log('==========>123123', 123123)
+			},
+		};
+	};
+
 	protected render(): string {
 		// language=hbs
 		return `
 			<main class="chat-page">
-					<h1>Chat</h1>
-          {{{Link href="/profile" text="Профиль"}}}
+          {{{ChatSidebar}}}
 			</main>
 		`;
 	}

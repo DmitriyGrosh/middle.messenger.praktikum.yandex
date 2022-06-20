@@ -8,9 +8,10 @@ import {
 	Avatar,
 	LinkProfile,
 	ListProfile,
+	ChatElement,
 } from "./components";
 
-import { AuthForm } from "./layouts";
+import { AuthForm , ChatSidebar, SidebarHeader} from "./layouts";
 
 import {
 	Login,
@@ -32,6 +33,9 @@ const components = [
 	Input,
 	LeftSidebar,
 	AuthForm,
+	ChatSidebar,
+	ChatElement,
+	SidebarHeader,
 ];
 
 components.forEach((Component) => {

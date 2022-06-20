@@ -16,7 +16,7 @@ class Typography extends Block {
 	protected render(): string {
 		// language=hbs
 		return `
-			<p class="typography {{color}} {{size}}">{{text}}</p>
+			<span class="typography {{color}} {{size}}">{{text}}</span>
 		`;
 	}
 }

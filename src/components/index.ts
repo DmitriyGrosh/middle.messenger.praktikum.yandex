@@ -5,3 +5,4 @@ export * from "./button";
 export * from "./avatar";
 export * from "./link";
 export * from "./typography";
+export * from "./chatElement";
