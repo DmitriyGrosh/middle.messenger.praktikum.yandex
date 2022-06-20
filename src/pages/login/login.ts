@@ -45,7 +45,7 @@ class Login extends Block {
 					// сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
 					setTimeout(() => {
 						window.location.href = '/chat';
-					}, 5000)
+					}, 5000);
 				}
 			},
 
@@ -59,7 +59,7 @@ class Login extends Block {
 						default:
 							return isEmptyValidator(value);
 					}
-				}
+				};
 
 				const nextState = {
 					errors: {

@@ -39,7 +39,7 @@ class Input extends Block {
 		});
 	}
 
-	addEvents() {
+	addInputEvents() {
 		const events: Record<string, () => void> = (this.props as any).events;
 
 		if (!events) {
@@ -55,8 +55,8 @@ class Input extends Block {
 		});
 	}
 
-	componentDidMount(props: any) {
-		this.addEvents();
+	componentDidMount() {
+		this.addInputEvents();
 	}
 
 	protected render(): string {
