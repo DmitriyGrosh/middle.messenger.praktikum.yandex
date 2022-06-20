@@ -9,7 +9,7 @@ class Chat extends Block {
 		return `
 			<main class="chat-page">
 					<h1>Chat</h1>
-          {{{Link href="profile.hbs" text="Профиль"}}}
+          {{{Link href="/profile" text="Профиль"}}}
 			</main>
 		`;
 	}
