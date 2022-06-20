@@ -1,8 +1,8 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import { information, profileLinks as profiles } from "../../shared/const";
+import { information, profileLinks as profiles } from '../../shared/const';
 
-import "./profile.scss";
+import './profile.scss';
 
 interface IProfile {
 	informationLinks?: typeof information;
@@ -10,12 +10,13 @@ interface IProfile {
 }
 
 class Profile extends Block {
-	constructor({ informationLinks = information, profileLinks = profiles }: IProfile) {
-		super({ informationLinks, profileLinks });
-	}
-	protected render(): string {
-		// language=hbs
-		return `
+  constructor({ informationLinks = information, profileLinks = profiles }: IProfile) {
+    super({ informationLinks, profileLinks });
+  }
+
+  protected render(): string {
+    // language=hbs
+    return `
         <main class="profile-page">
             {{{LeftSidebar href="/chat"}}}
             <div class="profile-page__content">
@@ -42,7 +43,7 @@ class Profile extends Block {
             </div>
         </main>
 		`;
-	}
+  }
 }
 
 export default Profile;

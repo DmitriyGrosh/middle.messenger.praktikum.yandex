@@ -1,6 +1,6 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./input.scss";
+import './input.scss';
 
 interface IInput {
 	onChangeTest?: () => void;
@@ -16,62 +16,62 @@ interface IInput {
 }
 
 class Input extends Block {
-	constructor({
-			isDouble = false,
-			type = 'text',
-			inputId,
-			label,
-			required,
-			error,
-			value,
-			// почему если принимать именна пропсов как onChange или onBlur, то выкидывает ошибку
-			onChangeBlur = () => {},
-			onChangeFocus = () => {},
-			onChangeTest = () => {},
-		}: IInput) {
-		super({
-			isDouble,
-			type,
-			inputId,
-			label,
-			error,
-			value,
-			required,
-			events: { input: onChangeTest, focus: onChangeFocus, blur: onChangeBlur },
-		});
-	}
+  constructor({
+    isDouble = false,
+    type = 'text',
+    inputId,
+    label,
+    required,
+    error,
+    value,
+    // почему если принимать именна пропсов как onChange или onBlur, то выкидывает ошибку
+    onChangeBlur = () => {},
+    onChangeFocus = () => {},
+    onChangeTest = () => {},
+  }: IInput) {
+    super({
+      isDouble,
+      type,
+      inputId,
+      label,
+      error,
+      value,
+      required,
+      events: { input: onChangeTest, focus: onChangeFocus, blur: onChangeBlur },
+    });
+  }
 
-	addInputEvents() {
-		const events: Record<string, () => void> = (this.props as any).events;
+  addInputEvents() {
+    const { events } = this.props as any;
 
-		if (!events) {
-			return;
-		}
+    if (!events) {
+      return;
+    }
 
-		Object.entries(events).forEach(([event, listener]) => {
-			if (this.props.inputId && this._element?.querySelector(`#${this.props.inputId}`)) {
-				this._element?.querySelector(`#${this.props.inputId}`)?.addEventListener(event, listener)
-			} else {
+    Object.entries(events).forEach(([event, listener]) => {
+      if (this.props.inputId && this._element?.querySelector(`#${this.props.inputId}`)) {
+        this._element?.querySelector(`#${this.props.inputId}`)?.addEventListener(event, listener);
+      } else {
 				this._element!.addEventListener(event, listener);
-			}
-		});
-	}
+      }
+    });
+  }
 
-	componentDidMount() {
-		this.addInputEvents();
-	}
+  componentDidMount() {
+    this.addInputEvents();
+  }
 
-	// componentDidUpdate() {
-	// 	this.addInputEvents();
-	//
-	// 	return true;
-	// }
+  // componentDidUpdate() {
+  // 	this.addInputEvents();
+  //
+  // 	return true;
+  // }
 
-	protected render(): string {
-		const classes = `input-default ${this.props.isDouble ? 'input-default__border-none' : ''}`;
+  protected render(): string {
+    const classes = `input-default ${this.props.isDouble ? 'input-default__border-none' : ''}`;
 
-		// language=hbs
-		return `
+    // language=hbs
+    return `
 		<div class="input-wrapper">
 	    <div class="input-container">
 	        <input type="{{type}}" id="{{inputId}}" class="${classes}" value="{{value}}">
@@ -82,7 +82,7 @@ class Input extends Block {
 	    {{/if}}
 		</div>
 		`;
-	}
+  }
 }
 
 export default Input;

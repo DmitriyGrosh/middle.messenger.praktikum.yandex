@@ -1,6 +1,6 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./link.scss";
+import './link.scss';
 
 interface ILink {
 	color: string;
@@ -10,16 +10,20 @@ interface ILink {
 }
 
 class Link extends Block {
-	constructor({ color, href, size, text }: ILink) {
-		super({ color, href, size, text });
-	}
+  constructor({
+    color, href, size, text,
+  }: ILink) {
+    super({
+      color, href, size, text,
+    });
+  }
 
-	protected render(): string {
-		// language=hbs
-		return `
+  protected render(): string {
+    // language=hbs
+    return `
 			<a class="link {{color}} {{size}}" href="{{href}}">{{text}}</a>
 		`;
-	}
+  }
 }
 
 export default Link;

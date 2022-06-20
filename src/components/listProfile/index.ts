@@ -1,1 +1,1 @@
-export { default as ListProfile } from "./listProfile";
+export { default as ListProfile } from './listProfile';

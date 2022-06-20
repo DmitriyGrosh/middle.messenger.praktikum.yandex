@@ -1,71 +1,74 @@
 const isEqual = (a: unknown, b: unknown) => {
-	const pull = new Map()
+  const pull = new Map();
 
-	const result = isEqualMaster(a, b)
+  const result = isEqualMaster(a, b);
 
-	pull.clear()
+  pull.clear();
 
-	return result
+  return result;
 
-	function getTypeOf(x: unknown): string {
-		return Object.prototype.toString.call(x).slice(8, -1)
-	}
+  function getTypeOf(x: unknown): string {
+    return Object.prototype.toString.call(x).slice(8, -1);
+  }
 
-	function isPrimitiveType(x: string) {
-		return ['Number', 'String', 'NaN', 'Undefined', 'Boolean', 'Null', 'BigInt'].includes(x)
-	}
+  function isPrimitiveType(x: string) {
+    return ['Number', 'String', 'NaN', 'Undefined', 'Boolean', 'Null', 'BigInt'].includes(x);
+  }
 
-	function isEqualMaster(a: unknown, b: unknown) {
-		if (pull.has(a)) {
-			return pull.get(a) === b
-		}
+  function isEqualMaster(oldProps: unknown, newProps: unknown) {
+    if (pull.has(oldProps)) {
+      return pull.get(oldProps) === newProps;
+    }
 
-		const typeA = getTypeOf(a)
-		const typeB = getTypeOf(b)
+    const typeA = getTypeOf(oldProps);
+    const typeB = getTypeOf(newProps);
 
-		if (typeA !== typeB) return false
+    if (typeA !== typeB) return false;
 
-		if (isPrimitiveType(typeA)) {
-			if (typeA === 'Number') {
-				if (isNaN(a as number) || isNaN(b as number)) {
-					return isNaN(a as number) && isNaN(b as number)
-				}
-			}
+    if (isPrimitiveType(typeA)) {
+      if (typeA === 'Number') {
+        if (Number.isNaN(oldProps as number) || Number.isNaN(newProps as number)) {
+          return Number.isNaN(oldProps as number) && Number.isNaN(newProps as number);
+        }
+      }
 
-			return a === b
-		}
+      return oldProps === newProps;
+    }
 
-		if (a === b) return true
+    if (oldProps === newProps) return true;
 
-		pull.set(a, b)
-		pull.set(b, a)
+    pull.set(oldProps, newProps);
+    pull.set(newProps, oldProps);
 
-		if (typeA === 'Array') {
-			if ((a as unknown[]).length !== (b as unknown[]).length) return false
+    if (typeA === 'Array') {
+      if ((oldProps as unknown[]).length !== (newProps as unknown[]).length) return false;
 
-			for (let i = 0; i < (a as unknown[]).length; i++) {
-				if (!isEqualMaster((a as unknown[])[i], (b as unknown[])[i])) return false
-			}
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < (oldProps as unknown[]).length; i++) {
+        if (!isEqualMaster((oldProps as unknown[])[i], (newProps as unknown[])[i])) return false;
+      }
 
-			return true
-		}
-		const keysA = Object.keys(a as Record<string, unknown>)
-		const keysB = Object.keys(b as Record<string, unknown>)
+      return true;
+    }
+    const keysA = Object.keys(oldProps as Record<string, unknown>);
+    const keysB = Object.keys(newProps as Record<string, unknown>);
 
-		if (keysA.length !== keysB.length) return false
+    if (keysA.length !== keysB.length) return false;
 
-		for (const key of keysA) {
-			if (!keysB.includes(key)) return false
-		}
+    for (const key of keysA) {
+      if (!keysB.includes(key)) return false;
+    }
 
-		for (const key of keysA) {
-			if (!isEqualMaster((a as Record<string, unknown>)[key], (b as Record<string, unknown>)[key])) {
-				return false
-			}
-		}
+    for (const key of keysA) {
+      if (
+        // eslint-disable-next-line max-len
+        !isEqualMaster((oldProps as Record<string, unknown>)[key], (newProps as Record<string, unknown>)[key])) {
+        return false;
+      }
+    }
 
-		return true
-	}
-}
+    return true;
+  }
+};
 
 export default isEqual;

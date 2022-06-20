@@ -1,1 +1,1 @@
-export { default as SidebarHeader } from "./sidebarHeader";
+export { default as SidebarHeader } from './sidebarHeader';

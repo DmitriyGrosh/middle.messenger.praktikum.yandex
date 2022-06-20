@@ -1,103 +1,102 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
 import {
-	emailValidator,
-	isEmptyValidator,
-	loginValidator,
-	phoneValidator,
-	validateByType
-} from "../../shared/utils/validator";
+  emailValidator,
+  isEmptyValidator,
+  loginValidator,
+  phoneValidator,
+  validateByType,
+} from '../../shared/utils/validator';
 
-import "./changeInformation.scss";
+import './changeInformation.scss';
 
 class ChangeInformation extends Block {
-	protected getStateFromProps()
-	{
-		this.state = {
-			isDouble: {
-				login: true,
-				email: true,
-				firstName: true,
-				lastName: true,
-				chatName: true,
-				phone: true,
-			},
-			values: {
-				login: 'test',
-				email: 'test@test.com',
-				firstName: 'Дима',
-				lastName: 'Грош',
-				chatName: '@groshidze',
-				phone: '8 (965) 327-74-55',
-			},
-			errors: {
-				login: '',
-				email: '',
-				firstName: '',
-				lastName: '',
-				chatName: '',
-				phone: '',
-			},
+  protected getStateFromProps() {
+    this.state = {
+      isDouble: {
+        login: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        chatName: true,
+        phone: true,
+      },
+      values: {
+        login: 'test',
+        email: 'test@test.com',
+        firstName: 'Дима',
+        lastName: 'Грош',
+        chatName: '@groshidze',
+        phone: '8 (965) 327-74-55',
+      },
+      errors: {
+        login: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        chatName: '',
+        phone: '',
+      },
 
-			onSubmit: (event: Event) => {
-				event.preventDefault();
+      onSubmit: (event: Event) => {
+        event.preventDefault();
 
-				const registerData = {
-					login: (this.refs.login.querySelector("#login") as HTMLInputElement).value,
-					email: (this.refs.email.querySelector("#email") as HTMLInputElement).value,
-					firstName: (this.refs.firstName.querySelector("#firstName") as HTMLInputElement).value,
-					lastName: (this.refs.lastName.querySelector("#lastName") as HTMLInputElement).value,
-					phone: (this.refs.phone.querySelector("#phone") as HTMLInputElement).value,
-					chatName: (this.refs.chatName.querySelector("#chatName") as HTMLInputElement).value,
-				};
+        const registerData = {
+          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value,
+          email: (this.refs.email.querySelector('#email') as HTMLInputElement).value,
+          firstName: (this.refs.firstName.querySelector('#firstName') as HTMLInputElement).value,
+          lastName: (this.refs.lastName.querySelector('#lastName') as HTMLInputElement).value,
+          phone: (this.refs.phone.querySelector('#phone') as HTMLInputElement).value,
+          chatName: (this.refs.chatName.querySelector('#chatName') as HTMLInputElement).value,
+        };
 
-				const nextState = {
-					errors: {
-						login: loginValidator(registerData.login),
-						email: emailValidator(registerData.email),
-						firstName: isEmptyValidator(registerData.firstName),
-						lastName: isEmptyValidator(registerData.lastName),
-						chatName: isEmptyValidator(registerData.chatName),
-						phone: phoneValidator(registerData.phone),
-					},
-					values: { ...registerData },
-				};
+        const nextState = {
+          errors: {
+            login: loginValidator(registerData.login),
+            email: emailValidator(registerData.email),
+            firstName: isEmptyValidator(registerData.firstName),
+            lastName: isEmptyValidator(registerData.lastName),
+            chatName: isEmptyValidator(registerData.chatName),
+            phone: phoneValidator(registerData.phone),
+          },
+          values: { ...registerData },
+        };
 
-				this.setState(nextState);
-			},
+        this.setState(nextState);
+      },
 
-			onFocus: (event: Event) => {
-				const { id } = event.target as HTMLInputElement;
+      onFocus: (event: Event) => {
+        const { id } = event.target as HTMLInputElement;
 
-				document?.getElementById(id)?.classList.remove("input-default__border-none");
-			},
+        document?.getElementById(id)?.classList.remove('input-default__border-none');
+      },
 
-			onBlur: (event: Event) => {
-				const { id, value } = event.target as HTMLInputElement;
+      onBlur: (event: Event) => {
+        const { id, value } = event.target as HTMLInputElement;
 
-				document?.getElementById(id)?.classList.add("input-default__border-none");
+        document?.getElementById(id)?.classList.add('input-default__border-none');
 
-				const nextState = {
-					errors: {
-						...this.state.errors,
-						[id]: validateByType(id, value),
-					},
-					values: {
-						...this.state.values,
-						[id]: value,
-					},
-				};
+        const nextState = {
+          errors: {
+            ...this.state.errors,
+            [id]: validateByType(id, value),
+          },
+          values: {
+            ...this.state.values,
+            [id]: value,
+          },
+        };
 
-				this.setState(nextState);
-			}
-		};
-	}
+        this.setState(nextState);
+      },
+    };
+  }
 
-	protected render(): string {
-		const { isDouble, values, errors } = this.state;
+  protected render(): string {
+    const { isDouble, values, errors } = this.state;
 
-		// language=hbs
-		return `
+    // language=hbs
+    return `
 		 <main class="change-information-page">
          {{{LeftSidebar href="/profile"}}}
 				 <div class="change-information-page__content">
@@ -195,7 +194,7 @@ class ChangeInformation extends Block {
             </div>
         </main>
 		`;
-	}
+  }
 }
 
 export default ChangeInformation;

@@ -1,47 +1,47 @@
-import { Block } from "../../shared/utils";
-import { chats } from "../../shared/const";
+import { Block } from '../../shared/utils';
+import { chats } from '../../shared/const';
 
-import "./chatContent.scss";
+import './chatContent.scss';
 
 interface IChatContent {
 	activeChatId: number;
 }
 
 class ChatContent extends Block {
-	constructor({ activeChatId }: IChatContent ) {
-		super({ activeChatId });
-	}
-	protected getStateFromProps() {
-		this.state = {
-			values: {
-				chat: '',
-			},
-			user: chats[0],
-			messages: [],
-			handleChange: () => {},
-			handleSubmit: () => {
-				const message = (this.refs.chat.querySelector("#chat") as HTMLInputElement).value;
-				console.log('==========>message', message);
-				this.setState({
-					values: {
-						chat: '',
-					},
-				})
-			},
-		};
-	};
+  constructor({ activeChatId }: IChatContent) {
+    super({ activeChatId });
+  }
 
-	componentDidMount() {
-		this.setState({
-			user: chats.find((el) => el.id === this.props.activeChatId),
-		});
-	}
+  protected getStateFromProps() {
+    this.state = {
+      values: {
+        chat: '',
+      },
+      user: chats[0],
+      messages: [],
+      handleChange: () => {},
+      handleSubmit: () => {
+        const message = (this.refs.chat.querySelector('#chat') as HTMLInputElement).value;
+        console.log('==========>message', message);
+        this.setState({
+          values: {
+            chat: '',
+          },
+        });
+      },
+    };
+  }
 
+  componentDidMount() {
+    this.setState({
+      user: chats.find((el) => el.id === this.props.activeChatId),
+    });
+  }
 
-	protected render(): string {
-		const { values } = this.state;
-		// language=hbs
-		return `
+  protected render(): string {
+    const { values } = this.state;
+    // language=hbs
+    return `
 			<div class="chat-content">
 					<div class="chat-content__header">
 							<div class="chat-content__header__account">
@@ -72,7 +72,7 @@ class ChatContent extends Block {
 					</div>
 			</div>
 		`;
-	}
+  }
 }
 
 export default ChatContent;

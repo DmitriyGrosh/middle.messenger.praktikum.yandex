@@ -1,12 +1,11 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./500.scss";
+import './500.scss';
 
 class Page505 extends Block {
-
-	protected render(): string {
-		// language=hbs
-		return `
+  protected render(): string {
+    // language=hbs
+    return `
 		<main>
 			<div class="error-500-page">
             <div class="error-500-page__wrapper">
@@ -17,7 +16,7 @@ class Page505 extends Block {
         </div>
 		</main>
 		`;
-	}
+  }
 }
 
 export default Page505;

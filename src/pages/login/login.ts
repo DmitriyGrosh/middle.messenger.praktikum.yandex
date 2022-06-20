@@ -1,78 +1,79 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 import {
-	loginValidator,
-	passwordValidator,
-	validateByType,
-} from "../../shared/utils/validator";
+  loginValidator,
+  passwordValidator,
+  validateByType,
+} from '../../shared/utils/validator';
 
-import "./login.scss";
+import './login.scss';
 
 class Login extends Block {
-	protected getStateFromProps() {
-		this.state = {
-			values: {
-				login: '',
-				password: '',
-			},
-			errors: {
-				login: '',
-				password: '',
-			},
+  protected getStateFromProps() {
+    this.state = {
+      values: {
+        login: '',
+        password: '',
+      },
+      errors: {
+        login: '',
+        password: '',
+      },
 
-			onLogin: (event: Event) => {
-				event.preventDefault();
+      onLogin: (event: Event) => {
+        event.preventDefault();
 
-				const loginData = {
-					login: (this.refs.login.querySelector("#login") as HTMLInputElement).value,
-					password: (this.refs.password.querySelector("#password") as HTMLInputElement).value
-				};
+        const loginData = {
+          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value,
+          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value,
+        };
 
-				const nextState = {
-					errors: {
-						login: loginValidator(loginData.login),
-						password: passwordValidator(loginData.password),
-					},
-					values: { ...loginData },
-				};
+        const nextState = {
+          errors: {
+            login: loginValidator(loginData.login),
+            password: passwordValidator(loginData.password),
+          },
+          values: { ...loginData },
+        };
 
-				this.setState(nextState);
+        this.setState(nextState);
 
-				console.log('action/login', loginData);
+        console.log('action/login', loginData);
 
-				const { login, password } = this.state;
+        const { login, password } = this.state;
 
-				if (!login && !password) {
-					// сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
-					setTimeout(() => {
-						window.location.href = '/chat';
-					}, 5000);
-				}
-			},
+        if (!login && !password) {
+          // eslint-disable-next-line max-len
+          // сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
+          setTimeout(() => {
+            window.location.href = '/chat';
+          }, 5000);
+        }
+      },
 
-			onBlur: (event: Event) => {
-				const { id, value } = event.target as HTMLInputElement;
+      onBlur: (event: Event) => {
+        const { id, value } = event.target as HTMLInputElement;
 
-				const nextState = {
-					errors: {
-						...this.state.errors,
-						[id]: validateByType(id, value, this.state.password),
-					},
-					values: {
-						...this.state.values,
-						[id]: value,
-					},
-				};
+        const nextState = {
+          errors: {
+            ...this.state.errors,
+            [id]: validateByType(id, value, this.state.password),
+          },
+          values: {
+            ...this.state.values,
+            [id]: value,
+          },
+        };
 
-				this.setState(nextState);
-			},
-		}
-	}
+        this.setState(nextState);
+      },
+    };
+  }
 
-	protected render(): string {
-		const { errors, values } = this.state;
+  protected render(): string {
+    const { errors, values } = this.state;
 
-		// language=hbs
-		return `
+    // language=hbs
+    return `
 		<main class="login-page">
     		{{#AuthForm
 						    header="Логин"
@@ -104,7 +105,7 @@ class Login extends Block {
         {{/AuthForm}}
      </main>
 		`;
-	}
+  }
 }
 
 export default Login;

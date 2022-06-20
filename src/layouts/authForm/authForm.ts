@@ -1,6 +1,6 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./authForm.scss";
+import './authForm.scss';
 
 interface IAuthForm {
 	formId: string;
@@ -13,14 +13,18 @@ interface IAuthForm {
 }
 
 class AuthForm extends Block {
-	constructor({ header, formId, textButton, textLink, hrefLink, className, onSubmit }: IAuthForm) {
-		super({ header, formId, textButton, textLink, hrefLink, className, events: { submit: onSubmit } });
-	}
+  constructor({
+    header, formId, textButton, textLink, hrefLink, className, onSubmit,
+  }: IAuthForm) {
+    super({
+      header, formId, textButton, textLink, hrefLink, className, events: { submit: onSubmit },
+    });
+  }
 
-	protected render(): string {
-		const classes = `content ${this.props.className || ''}`;
-		// language=hbs
-		return `
+  protected render(): string {
+    const classes = `content ${this.props.className || ''}`;
+    // language=hbs
+    return `
         <form id="{{id.formId}}" class="auth-form">
             <div class="header">
         			{{{Typography text=header size="lg" }}}
@@ -32,7 +36,7 @@ class AuthForm extends Block {
             </div>
         </form>
 		`;
-	};
+  }
 }
 
 export default AuthForm;

@@ -1,12 +1,11 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./404.scss";
+import './404.scss';
 
 class Page404 extends Block {
-
-	protected render(): string {
-		// language=hbs
-		return `
+  protected render(): string {
+    // language=hbs
+    return `
 			<main>
 					<div class="error-404-page">
               <div class="error-404-page__wrapper">
@@ -17,7 +16,7 @@ class Page404 extends Block {
           </div>
 			</main>
 		`;
-	}
+  }
 }
 
 export default Page404;

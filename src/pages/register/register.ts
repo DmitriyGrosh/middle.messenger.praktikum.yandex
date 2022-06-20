@@ -1,101 +1,104 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 import {
-	emailValidator,
-	isEmptyValidator,
-	loginValidator,
-	passwordValidator,
-	phoneValidator,
-	validateByType,
-} from "../../shared/utils/validator";
+  emailValidator,
+  isEmptyValidator,
+  loginValidator,
+  passwordValidator,
+  phoneValidator,
+  validateByType,
+} from '../../shared/utils/validator';
 
-import "./register.scss";
+import './register.scss';
 
 class Register extends Block {
-	protected getStateFromProps() {
-		this.state = {
-			values: {
-				login: '',
-				password: '',
-				email: '',
-				firstName: '',
-				lastName: '',
-				phone: '',
-				rePassword: '',
-			},
-			errors: {
-				login: '',
-				password: '',
-				email: '',
-				firstName: '',
-				lastName: '',
-				phone: '',
-				rePassword: '',
-			},
+  protected getStateFromProps() {
+    this.state = {
+      values: {
+        login: '',
+        password: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        rePassword: '',
+      },
+      errors: {
+        login: '',
+        password: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        rePassword: '',
+      },
 
-			onRegister: (event: Event) => {
-				event.preventDefault();
+      onRegister: (event: Event) => {
+        event.preventDefault();
 
-				const registerData = {
-					login: (this.refs.login.querySelector("#login") as HTMLInputElement).value,
-					password: (this.refs.password.querySelector("#password") as HTMLInputElement).value,
-					email: (this.refs.email.querySelector("#email") as HTMLInputElement).value,
-					firstName: (this.refs.firstName.querySelector("#firstName") as HTMLInputElement).value,
-					lastName: (this.refs.lastName.querySelector("#lastName") as HTMLInputElement).value,
-					phone: (this.refs.phone.querySelector("#phone") as HTMLInputElement).value,
-					rePassword: (this.refs.rePassword.querySelector("#rePassword") as HTMLInputElement).value,
-				};
+        const registerData = {
+          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value,
+          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value,
+          email: (this.refs.email.querySelector('#email') as HTMLInputElement).value,
+          firstName: (this.refs.firstName.querySelector('#firstName') as HTMLInputElement).value,
+          lastName: (this.refs.lastName.querySelector('#lastName') as HTMLInputElement).value,
+          phone: (this.refs.phone.querySelector('#phone') as HTMLInputElement).value,
+          rePassword: (this.refs.rePassword.querySelector('#rePassword') as HTMLInputElement).value,
+        };
 
-				const nextState = {
-					errors: {
-						login: loginValidator(registerData.login),
-						password: passwordValidator(registerData.password),
-						email: emailValidator(registerData.email),
-						firstName: isEmptyValidator(registerData.firstName),
-						lastName: isEmptyValidator(registerData.lastName),
-						phone: phoneValidator(registerData.phone),
-						rePassword: passwordValidator(registerData.password, registerData.rePassword),
-					},
-					values: { ...registerData },
-				};
+        const nextState = {
+          errors: {
+            login: loginValidator(registerData.login),
+            password: passwordValidator(registerData.password),
+            email: emailValidator(registerData.email),
+            firstName: isEmptyValidator(registerData.firstName),
+            lastName: isEmptyValidator(registerData.lastName),
+            phone: phoneValidator(registerData.phone),
+            rePassword: passwordValidator(registerData.password, registerData.rePassword),
+          },
+          values: { ...registerData },
+        };
 
-				this.setState(nextState);
+        this.setState(nextState);
 
-				const { login, password, email, firstName, lastName, phone, rePassword } = this.state.errors;
+        const {
+          login, password, email, firstName, lastName, phone, rePassword,
+        } = this.state.errors;
 
-				console.log('action/register', registerData);
+        console.log('action/register', registerData);
 
-				if (!login && !password && !email && !firstName && !lastName && !phone && !rePassword) {
-					// сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
-					setTimeout(() => {
-						window.location.href = '/chat';
-					}, 5000)
-				}
-			},
+        if (!login && !password && !email && !firstName && !lastName && !phone && !rePassword) {
+          // eslint-disable-next-line max-len
+          // сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
+          setTimeout(() => {
+            window.location.href = '/chat';
+          }, 5000);
+        }
+      },
 
-			onBlur: (event: Event) => {
-				const { id, value } = event.target as HTMLInputElement;
+      onBlur: (event: Event) => {
+        const { id, value } = event.target as HTMLInputElement;
 
-				const nextState = {
-					errors: {
-						...this.state.errors,
-						[id]: validateByType(id, value, this.state.password),
-					},
-					values: {
-						...this.state.values,
-						[id]: value,
-					},
-				};
+        const nextState = {
+          errors: {
+            ...this.state.errors,
+            [id]: validateByType(id, value, this.state.password),
+          },
+          values: {
+            ...this.state.values,
+            [id]: value,
+          },
+        };
 
-				this.setState(nextState);
-			},
-		}
-	}
+        this.setState(nextState);
+      },
+    };
+  }
 
-	protected render(): string {
-		const { errors, values } = this.state;
+  protected render(): string {
+    const { errors, values } = this.state;
 
-		// language=hbs
-		return `
+    // language=hbs
+    return `
         <main class="register-page">
             {{#AuthForm
 				            onSubmit=onRegister
@@ -172,7 +175,7 @@ class Register extends Block {
             {{/AuthForm}}
         </main>
 		`;
-	};
+  }
 }
 
 export default Register;

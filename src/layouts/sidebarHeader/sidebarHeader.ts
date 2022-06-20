@@ -1,29 +1,33 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./sidebatHeader.scss";
+import './sidebatHeader.scss';
 
 interface ISidebarHeader {
 	onChangeTest: (event: Event) => void;
 }
 
 class SidebarHeader extends Block {
-	constructor({ onChangeTest = () => {} }: ISidebarHeader) {
-		super({ events: { input: onChangeTest } });
-	}
+  constructor({ onChangeTest = () => {} }: ISidebarHeader) {
+    super({ events: { input: onChangeTest } });
+  }
 
-	protected render(): string {
-		// language=hbs
-		return `
+  protected render(): string {
+    // language=hbs
+    return `
 			<div class="sidebar-header">
 					<div class="sidebar-header__row">
               {{{Link href="/profile" text="Профиль >" color="gray"}}}
 					</div>
 					<div class="sidebar-header__row">
-							<input class="sidebar-header__row__input" type="text" placeholder="Поиск">
+							<input
+											class="sidebar-header__row__input"
+											type="text"
+											placeholder="Поиск"
+							>
 					</div>
 			</div>
 		`;
-	};
+  }
 }
 
 export default SidebarHeader;

@@ -1,1 +1,1 @@
-export { default as ChangeInformation } from "./changeInformation";
+export { default as ChangeInformation } from './changeInformation';

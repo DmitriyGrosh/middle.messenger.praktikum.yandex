@@ -1,6 +1,6 @@
-import { Block } from "../../shared/utils";
+import { Block } from '../../shared/utils';
 
-import "./typography.scss";
+import './typography.scss';
 
 interface ITypography {
 	color: string;
@@ -9,16 +9,16 @@ interface ITypography {
 }
 
 class Typography extends Block {
-	constructor({ color, size, text }: ITypography) {
-		super({ color, size, text });
-	}
+  constructor({ color, size, text }: ITypography) {
+    super({ color, size, text });
+  }
 
-	protected render(): string {
-		// language=hbs
-		return `
+  protected render(): string {
+    // language=hbs
+    return `
 			<span class="typography {{color}} {{size}}">{{text}}</span>
 		`;
-	}
+  }
 }
 
-export default Typography
+export default Typography;
