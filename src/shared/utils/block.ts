@@ -1,7 +1,8 @@
-import { nanoid } from 'nanoid';
-import * as Handlebars from 'handlebars';
 import EventBus from './eventBus';
 import { isEqual } from './methods';
+
+import * as Handlebars from 'handlebars';
+import { nanoid } from 'nanoid';
 
 interface BlockMeta<P = any> {
 	props: P;
