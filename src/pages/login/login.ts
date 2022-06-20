@@ -1,5 +1,9 @@
 import { Block } from "../../shared/utils";
-import { loginValidator, passwordValidator } from "../../shared/utils/validator";
+import {
+	isEmptyValidator,
+	loginValidator,
+	passwordValidator,
+} from "../../shared/utils/validator";
 
 import "./login.scss";
 
@@ -14,6 +18,7 @@ class Login extends Block {
 				login: '',
 				password: '',
 			},
+
 			onLogin: (event: Event) => {
 				event.preventDefault();
 
@@ -34,10 +39,41 @@ class Login extends Block {
 
 				console.log('action/login', loginData);
 
-				if (!this.state.errors.login && !this.state.errors.password) {
-					window.location.href = '/chat';
+				const { login, password } = this.state;
+
+				if (!login && !password) {
+					// сделал сет таймаут для того чтобы можно было увидеть в консоли что данные выводятся и потом сдлеать переход на чаты
+					setTimeout(() => {
+						window.location.href = '/chat';
+					}, 5000)
 				}
-			}
+			},
+
+			onBlur: (event: Event) => {
+				const { id, value } = event.target as HTMLInputElement;
+				const validateByType = () => {
+					switch (id) {
+						case "password":
+							return passwordValidator(value);
+						case "login":
+						default:
+							return isEmptyValidator(value);
+					}
+				}
+
+				const nextState = {
+					errors: {
+						...this.state.errors,
+						[id]: validateByType(),
+					},
+					values: {
+						...this.state.values,
+						[id]: value,
+					},
+				};
+
+				this.setState(nextState);
+			},
 		}
 	}
 
@@ -56,6 +92,7 @@ class Login extends Block {
                 onSubmit=onLogin
 		    }}
             {{{Input
+                    onChangeBlur=onBlur
 				            ref="login"
                     inputId="login"
 				            type="text"
@@ -65,6 +102,7 @@ class Login extends Block {
                     error="${errors.login}"
             }}}
             {{{Input
+                    onChangeBlur=onBlur
 				            ref="password"
                     value="${values.password}"
                     error="${errors.password}"
