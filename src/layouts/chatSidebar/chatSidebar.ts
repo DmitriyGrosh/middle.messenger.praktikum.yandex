@@ -2,7 +2,6 @@ import { Block } from "../../shared/utils";
 import { chats as chatsContent } from "../../shared/const";
 
 import "./chatSidebar.scss";
-import chat from "../../pages/chat/chat";
 
 interface IChatSidebar {
 	chats?: typeof chatsContent;
