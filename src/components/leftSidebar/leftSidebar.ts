@@ -11,6 +11,10 @@ class LeftSidebar extends Block {
     super({ href });
   }
 
+	static get blockName() {
+		return 'LeftSidebar';
+	}
+
   protected render(): string {
     // language=hbs
     return `

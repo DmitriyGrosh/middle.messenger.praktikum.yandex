@@ -6,13 +6,14 @@ interface BlockConstructable<Props = any> {
 	new(props: Props): Block;
 }
 
-export default function registerComponent<Props extends any>(Component: BlockConstructable<Props>) {
+function registerComponent<Props extends any>(Component: BlockConstructable<Props>, name: string) {
   Handlebars.registerHelper(
-    Component.name,
+    name,
     function (this: Props, { hash: { ref, ...hash }, data, fn }: Handlebars.HelperOptions) {
     if (!data.root.children) {
       data.root.children = {};
     }
+    console.log('==========>name', name);
 
     if (!data.root.refs) {
       data.root.refs = {};
@@ -25,8 +26,7 @@ export default function registerComponent<Props extends any>(Component: BlockCon
         hash[key] = hash[key].replace(new RegExp(`{{${String(key)}}}`, 'i'), this[key]);
       }
     });
-
-    const component = new Component(hash);
+      const component = new Component(hash);
 
     children[component.id] = component;
 
@@ -40,3 +40,5 @@ export default function registerComponent<Props extends any>(Component: BlockCon
   },
 );
 }
+
+export default registerComponent;

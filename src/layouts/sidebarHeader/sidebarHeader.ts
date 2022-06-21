@@ -11,6 +11,10 @@ class SidebarHeader extends Block {
     super({ events: { input: onChangeTest } });
   }
 
+	static get blockName() {
+		return 'SidebarHeader';
+	}
+
   protected render(): string {
     // language=hbs
     return `

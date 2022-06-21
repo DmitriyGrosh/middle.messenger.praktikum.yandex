@@ -3,6 +3,10 @@ import { Block } from '../../shared/utils';
 import './listProfile.scss';
 
 class ListProfile extends Block {
+	static get blockName() {
+		return 'ListProfile';
+	}
+
   protected render(): string {
     // language=hbs
     return `

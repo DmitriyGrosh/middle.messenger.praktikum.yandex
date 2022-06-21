@@ -21,6 +21,10 @@ class AuthForm extends Block {
     });
   }
 
+	static get blockName() {
+		return 'AuthForm';
+	}
+
   protected render(): string {
     const classes = `content ${this.props.className || ''}`;
     // language=hbs

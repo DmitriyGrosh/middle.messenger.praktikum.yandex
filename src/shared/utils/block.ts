@@ -1,7 +1,8 @@
-import { nanoid } from 'nanoid';
-import * as Handlebars from 'handlebars';
-import EventBus from './EventBus';
+import EventBus from './eventBus';
 import { isEqual } from './methods';
+
+import * as Handlebars from 'handlebars';
+import { nanoid } from 'nanoid';
 
 interface BlockMeta<P = any> {
 	props: P;
@@ -16,6 +17,10 @@ export default class Block<P = any> {
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
   } as const;
+
+  static get blockName() {
+    return 'Block';
+  }
 
   public id = nanoid(6);
 

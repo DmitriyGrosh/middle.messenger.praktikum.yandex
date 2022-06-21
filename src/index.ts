@@ -49,12 +49,13 @@ const components = [
 ];
 
 components.forEach((Component) => {
-  registerComponent(Component);
+  registerComponent(Component, Component.blockName);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   const router = (): Block => {
     const { pathname } = window.location;
+    console.log('==========>pathname', pathname);
     switch (pathname) {
       case '/':
         return new Login({});

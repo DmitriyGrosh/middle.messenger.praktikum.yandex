@@ -13,6 +13,10 @@ class Button extends Block {
     super({ type, text, events: { click: onClick } });
   }
 
+	static get blockName() {
+		return 'Button';
+	}
+
   protected render(): string {
     // language=hbs
     return `
