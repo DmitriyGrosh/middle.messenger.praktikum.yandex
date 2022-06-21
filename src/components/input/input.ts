@@ -41,6 +41,10 @@ class Input extends Block {
     });
   }
 
+	static get blockName() {
+		return 'Input';
+	}
+
   addInputEvents() {
     const { events } = this.props as any;
 

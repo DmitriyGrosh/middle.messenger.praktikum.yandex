@@ -13,6 +13,10 @@ class Typography extends Block {
     super({ color, size, text });
   }
 
+	static get blockName() {
+		return 'Typography';
+	}
+
   protected render(): string {
     // language=hbs
     return `

@@ -12,6 +12,10 @@ class ChatContent extends Block {
     super({ activeChatId });
   }
 
+  static get blockName() {
+    return 'ChatContent';
+  }
+
   protected getStateFromProps() {
     this.state = {
       values: {

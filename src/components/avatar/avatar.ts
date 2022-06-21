@@ -11,6 +11,10 @@ class Avatar extends Block {
     super({ name });
   }
 
+	static get blockName() {
+		return 'Avatar';
+	}
+
   protected render(): string {
     // language=hbs
     return `

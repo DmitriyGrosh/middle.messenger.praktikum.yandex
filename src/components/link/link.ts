@@ -18,6 +18,10 @@ class Link extends Block {
     });
   }
 
+	static get blockName() {
+		return 'Link';
+	}
+
   protected render(): string {
     // language=hbs
     return `

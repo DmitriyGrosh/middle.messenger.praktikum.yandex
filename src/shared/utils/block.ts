@@ -18,6 +18,10 @@ export default class Block<P = any> {
     FLOW_RENDER: 'flow:render',
   } as const;
 
+  static get blockName() {
+    return 'Block';
+  }
+
   public id = nanoid(6);
 
   private readonly _meta: BlockMeta;
@@ -117,10 +121,6 @@ export default class Block<P = any> {
 
   get element() {
     return this._element;
-  }
-
-  get getCompName() {
-    return '';
   }
 
   _render() {

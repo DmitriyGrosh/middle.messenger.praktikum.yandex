@@ -21,7 +21,7 @@ class AuthForm extends Block {
     });
   }
 
-	get getCompName() {
+	static get blockName() {
 		return 'AuthForm';
 	}
 

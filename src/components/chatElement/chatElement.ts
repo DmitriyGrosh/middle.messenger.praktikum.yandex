@@ -19,6 +19,10 @@ class ChatElement extends Block {
     });
   }
 
+	static get blockName() {
+		return 'ChatElement';
+	}
+
   protected render(): string {
     // language=hbs
     return `

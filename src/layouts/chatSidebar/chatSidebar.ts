@@ -13,6 +13,10 @@ class ChatSidebar extends Block {
     super({ chats, onClick });
   }
 
+  static get blockName() {
+    return 'ChatSidebar';
+  }
+
   protected getStateFromProps() {
     this.state = {
       onChange: () => {},
