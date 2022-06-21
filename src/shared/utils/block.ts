@@ -119,6 +119,10 @@ export default class Block<P = any> {
     return this._element;
   }
 
+  get getCompName() {
+    return '';
+  }
+
   _render() {
     const fragment = this._compile();
 
