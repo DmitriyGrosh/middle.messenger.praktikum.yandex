@@ -1,0 +1,45 @@
+@import "../../styles/mixin";
+@import "../../styles/vars";
+
+.typography {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: 500;
+	text-align: center;
+	color:$dark;
+	@include fontNormal;
+}
+
+// пытался вынести эти классы в глобыльные стили, но если так сделать,
+// то начальные стили перебивают
+
+.sm {
+	font-weight: 400;
+	@include fontSm;
+}
+
+.md {
+	@include fontMd;
+}
+
+.lg {
+	@include fontLg;
+}
+
+.red {
+	color: $red;
+}
+
+.gray {
+	color: $gray;
+}
+
+.blue {
+	color: $blue;
+}
+
+.white {
+	color: $white;
+}

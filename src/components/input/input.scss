@@ -1,0 +1,44 @@
+@import "../../styles/vars";
+
+.input-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+
+	.input-container {
+		position: relative;
+
+		.label-default {
+			position: absolute;
+			top: 7px;
+			left: 0;
+			color: $gray;
+			cursor: text;
+			transition: all .15s ease-in-out 0s;
+			font-size: 13px;
+		}
+
+		.input-default {
+			width: 100%;
+			padding: 7px 0;
+			box-sizing: border-box;
+			border: none;
+			border-bottom: 1px solid $blue;
+			outline: none;
+
+
+			&__border-none {
+				border: none;
+				color: $gray;
+			}
+
+			&:focus ~ .label-default,
+			&:valid ~ .label-default {
+				top: -1em;
+				left: 0;
+				font-size: 9px;
+				cursor: pointer;
+			}
+		}
+	}
+}

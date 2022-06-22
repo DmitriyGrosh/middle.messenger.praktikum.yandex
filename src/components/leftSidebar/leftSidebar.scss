@@ -1,0 +1,28 @@
+@import "../../styles/vars";
+
+.left-sidebar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 64px;
+	background: $white2;
+	height: 100%;
+	border-right: 1px solid $white;
+
+	.arrow {
+		background: $blue;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			content: "←";
+			color: $white;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}

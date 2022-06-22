@@ -1,0 +1,13 @@
+@import "../../styles/style";
+
+.chat-page {
+	display: flex;
+	flex-direction: row;
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
+}

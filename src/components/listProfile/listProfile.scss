@@ -1,0 +1,11 @@
+@import "../../styles/vars";
+
+.list-profile {
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid $white;
+		padding: 10px 0;
+	}
+}

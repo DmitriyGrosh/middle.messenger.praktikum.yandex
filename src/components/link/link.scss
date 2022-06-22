@@ -1,0 +1,37 @@
+@import "../../styles/mixin";
+@import "../../styles/vars";
+
+.link {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 11px;
+	line-height: 11px;
+}
+
+// пытался вынести эти классы в глобыльные стили, но если так сделать,
+// то начальные стили перебивают
+
+.sm {
+	font-weight: 400;
+	@include fontSm;
+}
+
+.md {
+	@include fontMd;
+}
+
+.lg {
+	@include fontLg;
+}
+
+.red {
+	color: $red;
+}
+
+.gray {
+	color: $gray;
+}
+
+.blue {
+	color: $blue;
+}

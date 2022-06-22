@@ -1,0 +1,44 @@
+import * as Handlebars from 'handlebars';
+
+import Block from './Block';
+
+interface BlockConstructable<Props = any> {
+	new(props: Props): Block;
+}
+
+function registerComponent<Props extends any>(Component: BlockConstructable<Props>, name: string) {
+  Handlebars.registerHelper(
+    name,
+    function (this: Props, { hash: { ref, ...hash }, data, fn }: Handlebars.HelperOptions) {
+    if (!data.root.children) {
+      data.root.children = {};
+    }
+    console.log('==========>name', name);
+
+    if (!data.root.refs) {
+      data.root.refs = {};
+    }
+
+    const { children, refs } = data.root;
+
+    (Object.keys(hash) as any).forEach((key: keyof Props) => {
+      if (this[key]) {
+        hash[key] = hash[key].replace(new RegExp(`{{${String(key)}}}`, 'i'), this[key]);
+      }
+    });
+      const component = new Component(hash);
+
+    children[component.id] = component;
+
+    if (ref) {
+      refs[ref] = component.getContent();
+    }
+
+    const contents = fn ? fn(this) : '';
+
+    return `<div data-id="${component.id}">${contents}</div>`;
+  },
+);
+}
+
+export default registerComponent;
