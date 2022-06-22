@@ -23,8 +23,8 @@ class Login extends Block {
         event.preventDefault();
 
         const loginData = {
-          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value,
-          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value,
+          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value ?? '',
+          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value ?? '',
         };
 
         const nextState = {

@@ -69,9 +69,6 @@ export default class Block<P = any> {
   }
 
   protected getStateFromProps(props: any): void {
-    if (false) {
-      console.log('==========>props', props);
-    }
 
     this.state = {};
   }
@@ -86,9 +83,6 @@ export default class Block<P = any> {
   }
 
   componentDidMount(props: P) {
-    if (false) {
-      console.log('==========>props', props);
-    }
   }
 
   _componentDidUpdate(oldProps: P, newProps: P) {

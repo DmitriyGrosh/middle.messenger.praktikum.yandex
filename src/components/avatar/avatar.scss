@@ -1,3 +1,5 @@
+@import "../../styles/vars";
+
 .avatar-wrapper {
 	width: max-content;
 	display: flex;
@@ -18,7 +20,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background: #000000;
+			background: $black;
 			opacity: 0.5;
 		}
 	}
@@ -27,7 +29,7 @@
 		width: 130px;
 		height: 130px;
 		border-radius: 50%;
-		background: #EFEFEF;
+		background: $white;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -45,7 +47,7 @@
 		font-weight: 600;
 		font-size: 16px;
 		line-height: 16px;
-		color: #1E1E1E;
+		color: $dark;
 		text-align: center;
 	}
 }

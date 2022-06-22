@@ -1,14 +1,16 @@
+@import "../../styles/vars";
+
 .left-sidebar {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 64px;
-	background: #FBFBFB;
+	background: $white2;
 	height: 100%;
-	border-right: 1px solid #EAEAEA;
+	border-right: 1px solid $white;
 
 	.arrow {
-		background: #3369F3;
+		background: $blue;
 		width: 28px;
 		height: 28px;
 		border-radius: 50%;
@@ -17,7 +19,7 @@
 		&:before {
 			position: absolute;
 			content: "←";
-			color: #FFFFFF;
+			color: $white;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);

@@ -1,3 +1,5 @@
+@import "./vars";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -27,7 +29,7 @@ ol, ul {
 
 a {
 	text-decoration: none;
-	color: #1E1E1E;
+	color: $dark;
 }
 
 a, p, span, h1, h2, h3, h4, h5, h6, li, label, button {

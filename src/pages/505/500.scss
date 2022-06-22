@@ -1,5 +1,6 @@
 @import "../../styles/style";
 @import "../../styles/mixin";
+@import "../../styles/vars";
 
 .error-500-page {
 	display: flex;
@@ -15,7 +16,7 @@
 			font-size: 40px;
 			line-height: 40px;
 			text-align: center;
-			color: #1E1E1E;
+			color: $dark;
 		}
 
 	}

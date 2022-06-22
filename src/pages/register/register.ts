@@ -36,13 +36,15 @@ class Register extends Block {
         event.preventDefault();
 
         const registerData = {
-          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value,
-          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value,
-          email: (this.refs.email.querySelector('#email') as HTMLInputElement).value,
-          firstName: (this.refs.firstName.querySelector('#firstName') as HTMLInputElement).value,
-          lastName: (this.refs.lastName.querySelector('#lastName') as HTMLInputElement).value,
-          phone: (this.refs.phone.querySelector('#phone') as HTMLInputElement).value,
-          rePassword: (this.refs.rePassword.querySelector('#rePassword') as HTMLInputElement).value,
+          login: (this.refs.login.querySelector('#login') as HTMLInputElement).value ?? '',
+          password: (this.refs.password.querySelector('#password') as HTMLInputElement).value ?? '',
+          email: (this.refs.email.querySelector('#email') as HTMLInputElement).value ?? '',
+          firstName: (this.refs.firstName.querySelector('#firstName') as HTMLInputElement).value
+            ?? '',
+          lastName: (this.refs.lastName.querySelector('#lastName') as HTMLInputElement).value ?? '',
+          phone: (this.refs.phone.querySelector('#phone') as HTMLInputElement).value ?? '',
+          rePassword: (this.refs.rePassword.querySelector('#rePassword') as HTMLInputElement).value
+            ?? '',
         };
 
         const nextState = {

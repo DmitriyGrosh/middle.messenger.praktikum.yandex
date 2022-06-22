@@ -55,7 +55,7 @@ components.forEach((Component) => {
 document.addEventListener('DOMContentLoaded', () => {
   const router = (): Block => {
     const { pathname } = window.location;
-    console.log('==========>pathname', pathname);
+
     switch (pathname) {
       case '/':
         return new Login({});
@@ -78,5 +78,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  renderDom(router());
+  renderDom(router(), 'app');
 });

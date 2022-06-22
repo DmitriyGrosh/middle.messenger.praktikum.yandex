@@ -1,3 +1,5 @@
+@import "../../styles/vars";
+
 .input-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -10,7 +12,7 @@
 			position: absolute;
 			top: 7px;
 			left: 0;
-			color: #999999;
+			color: $gray;
 			cursor: text;
 			transition: all .15s ease-in-out 0s;
 			font-size: 13px;
@@ -21,13 +23,13 @@
 			padding: 7px 0;
 			box-sizing: border-box;
 			border: none;
-			border-bottom: 1px solid #3369F3;
+			border-bottom: 1px solid $blue;
 			outline: none;
 
 
 			&__border-none {
 				border: none;
-				color: #999;
+				color: $gray;
 			}
 
 			&:focus ~ .label-default,

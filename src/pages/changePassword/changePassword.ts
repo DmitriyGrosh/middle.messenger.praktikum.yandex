@@ -64,13 +64,13 @@ class ChangePassword extends Block {
         const registerData = {
           oldPassword: (
             this.refs.oldPassword.querySelector('#oldPassword') as HTMLInputElement
-          ).value,
+          ).value ?? '',
           newPassword: (
             this.refs.newPassword.querySelector('#newPassword') as HTMLInputElement)
-            .value,
+            .value ?? '',
           reNewPassword: (
             this.refs.reNewPassword.querySelector('#reNewPassword') as HTMLInputElement
-          ).value,
+          ).value ?? '',
         };
 
         const nextState = {

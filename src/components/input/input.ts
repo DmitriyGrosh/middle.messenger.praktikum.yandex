@@ -53,8 +53,10 @@ class Input extends Block {
     }
 
     Object.entries(events).forEach(([event, listener]) => {
-      if (this.props.inputId && this._element?.querySelector(`#${this.props.inputId}`)) {
-        this._element?.querySelector(`#${this.props.inputId}`)?.addEventListener(event, listener);
+			const currentElement = this._element?.querySelector(`#${this.props.inputId}`);
+
+      if (this.props.inputId && currentElement) {
+	      currentElement?.addEventListener(event, listener);
       } else {
 				this._element!.addEventListener(event, listener);
       }
@@ -64,12 +66,6 @@ class Input extends Block {
   componentDidMount() {
     this.addInputEvents();
   }
-
-  // componentDidUpdate() {
-  // 	this.addInputEvents();
-  //
-  // 	return true;
-  // }
 
   protected render(): string {
     const classes = `input-default ${this.props.isDouble ? 'input-default__border-none' : ''}`;
