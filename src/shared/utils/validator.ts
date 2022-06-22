@@ -1,3 +1,5 @@
+import { phoneRegExp } from './regExp';
+
 export const isEmptyValidator = (value: string) => {
   if (!value) {
     return 'Это поле не может быть пустым';
@@ -52,9 +54,7 @@ export const phoneValidator = (value: string) => {
     return isEmptyValidator(value);
   }
 
-  const regExp = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
-
-  if (!regExp.test(value)) {
+  if (!phoneRegExp.test(value)) {
     return 'Это поле заполненно некорректно';
   }
 
