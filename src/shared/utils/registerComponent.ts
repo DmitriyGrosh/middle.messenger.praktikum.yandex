@@ -13,7 +13,6 @@ function registerComponent<Props extends any>(Component: BlockConstructable<Prop
     if (!data.root.children) {
       data.root.children = {};
     }
-    console.log('==========>name', name);
 
     if (!data.root.refs) {
       data.root.refs = {};
